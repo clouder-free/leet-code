@@ -15,19 +15,24 @@ class ListNode:
         self.val = x
         self.next = None
 
-class Solution:
+class Solution(object):
 
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         i = 1
         h = head
         r = head
+        k = None
         while h.next:
-            if i > n:
-                r = r.next
-            i += 1
             h = h.next
-        r.next = r.next.next
-        return head
+            i += 1
+            if i > n:
+                k = r
+                r = r.next
+        if k:
+            k.next = r.next
+            return head
+        else:
+            return r.next
 
 def printLinkList(node):
 
@@ -49,7 +54,7 @@ def main():
     n4 = ListNode(5)
     n3.next = n4
     printLinkList(node)
-    n = 5
+    n = 4
     solution = Solution()
     result = solution.removeNthFromEnd(head=node, n=n)
     printLinkList(result)
