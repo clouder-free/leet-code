@@ -33,10 +33,20 @@ class Solution(object):
                 results.append(temp)
         return results
 
+    def permute2(self, nums: [int]) -> [[int]]:
+        results = []
+        def back_trace(nums, temp):
+            if not nums:
+                results.append(temp)
+            for i in range(len(nums)):
+                back_trace(nums[:i] + nums[i+1:], temp + [nums[i]])
+        back_trace(nums, [])
+        return results
+
 def main():
     nums = [1, 2, 3]
     solution = Solution()
-    result = solution.permute(nums=nums)
+    result = solution.permute2(nums=nums)
     print(result)
 
 if __name__ == "__main__":
