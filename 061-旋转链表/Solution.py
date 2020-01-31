@@ -28,21 +28,53 @@ class ListNode(object):
 class Solution(object):
 
     def rotateRight(self, head: ListNode, k: int) -> ListNode:
-        return None
+        if k == 0 or not head:
+            return head
+        # 构成链表环
+        length = 1
+        p = head
+        while p.next:
+            p = p.next
+            length += 1
+        k %= length
+        if k == 0:
+            return head
+        p.next = head
+        step = length - k - 1
+        p = head
+        while step > 0:
+            p = p.next
+            step -= 1
+        head = p.next
+        p.next = None
+        return head
 
 def print_list_node(head):
 
     while head:
-        print(head.val,)
+        print(head.val, end="")
         head = head.next
         if head:
-            print("->",)
+            print("->", end="")
+    print("")
 
 def main():
-    head = ListNode(2)
+    # head = ListNode(1)
+    # n2 = ListNode(2)
+    # n3 = ListNode(3)
+    # n4 = ListNode(4)
+    # n5 = ListNode(5)
+    # head.next = n2
+    # n2.next = n3
+    # n3.next = n4
+    # n4.next = n5
+    head = ListNode(1)
+    n2 = ListNode(2)
+    head.next = n2
+    print_list_node(head)
     solution = Solution()
-    result = solution.rotateRight(head=head, k=4)
-    print()
+    result = solution.rotateRight(head=head, k=2)
+    print_list_node(result)
 
 if __name__ == "__main__":
     main()
