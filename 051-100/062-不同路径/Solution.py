@@ -10,8 +10,16 @@
 class Solution(object):
 
     def uniquePaths(self, m: int, n: int) -> int:
-        results = [[]]
-        return 0
+        # m列 n行
+        results = [[0] * m for i in range(n)]
+        for i in range(n):
+            for j in range(m):
+                # i行 j列
+                if i == 0 or j == 0:
+                    results[i][j] = 1
+                else:
+                    results[i][j] = results[i-1][j] + results[i][j-1]
+        return results[-1][-1]
 
     def uniquePaths2(self, m: int, n: int) -> int:
         def back_trace(m, n):
