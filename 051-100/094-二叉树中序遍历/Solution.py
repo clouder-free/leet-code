@@ -24,6 +24,21 @@ class Solution(object):
 
     def inorderTraversal(self, root: TreeNode) -> [int]:
         result = []
+        def traverse(node):
+            nodes = []
+            while node or nodes:
+                if node:
+                    nodes.append(node)
+                    node = node.left
+                else:
+                    node = nodes.pop()
+                    result.append(node.val)
+                    node = node.right
+        traverse(root)
+        return result
+
+    def inorderTraversal2(self, root: TreeNode) -> [int]:
+        result = []
         def inorder(root):
             if root:
                 result.append(root.val)
