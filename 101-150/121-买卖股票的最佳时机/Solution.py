@@ -17,18 +17,22 @@
 class Solution(object):
 
     def maxProfit(self, prices: [int]) -> int:
-        profit = 0
-        i = 0
-        while i < len(prices):
-            for p in prices[i+1:]:
-                if p - prices[i] > profit:
-                    profit = p - prices[i]
-            i += 1
-        return profit
+        if not prices:
+            return 0
+        # 最低价格
+        min_price = prices[0]
+        # 最大利润
+        max_profit = 0
+        for price in prices[1:]:
+            if price < min_price:
+                min_price = price
+            if price - min_price > max_profit:
+                max_profit = price - min_price
+        return max_profit
 
 def main():
-    # prices = [7, 1, 5, 3, 6, 4]
-    prices = [7, 6, 4, 3, 1]
+    prices = [7, 1, 5, 3, 6, 4]
+    # prices = [7, 6, 4, 3, 1]
     solution = Solution()
     result = solution.maxProfit(prices=prices)
     print(result)

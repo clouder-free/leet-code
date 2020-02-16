@@ -19,10 +19,32 @@
 class Solution(object):
 
     def numDecodings(self, s: str) -> int:
-        pass
+        if s[0] == "0":
+            return 0
+        s = "0" + s
+        dp = [1] * len(s)
+        for i in range(2, len(s)):
+            # 当前字符是否为0
+            if s[i] == "0":
+                if s[i-1] == "0" or int(s[i-1]) > 2:
+                    return 0
+                else:
+                    dp[i] = dp[i-2]
+            # 前一个字符为0
+            elif s[i-1] == "0":
+                dp[i] = dp[i-1]
+            # 两个字符都不为0
+            else:
+                temp = s[i-1:i+1]
+                if 10 < int(temp) <= 26:
+                    dp[i] = dp[i-1] + dp[i-2]
+                else:
+                    dp[i] = dp[i-1]
+        print(dp)
+        return dp[-1]
 
 def main():
-    s = "12"
+    s = "226"
     solution = Solution()
     result = solution.numDecodings(s=s)
     print(result)
