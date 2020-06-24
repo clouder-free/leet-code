@@ -49,7 +49,7 @@ class Solution(object):
         return max_len
 
 def main():
-    s = "pwfebewadg"
+    s = "pwwkew"
     solution = Solution()
     length = solution.lengthOfLongestSubstring2(s=s)
     print(length)

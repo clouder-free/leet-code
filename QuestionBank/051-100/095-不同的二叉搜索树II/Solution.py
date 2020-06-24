@@ -55,7 +55,6 @@ class Solution:
         return create_tree(start=1, end=n)
 
 
-
     def levelOrder(self, root: TreeNode) -> [[int]]:
         result = []
         if not root:

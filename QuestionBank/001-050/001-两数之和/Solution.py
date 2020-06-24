@@ -53,6 +53,14 @@ class Solution(object):
             nums_dict[num] = index
         return []
 
+    def twoSum4(self, nums: [int], target: int) -> [int]:
+        for index, num in enumerate(nums):
+            another = target - num
+            if another in nums[index+1:]:
+                j = nums[index+1:].index(another)
+                return [index, index+j+1]
+        return []
+
 def main():
     nums = [4, 2, 5, 4]
     target = 8

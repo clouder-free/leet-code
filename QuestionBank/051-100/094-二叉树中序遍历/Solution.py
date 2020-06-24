@@ -41,8 +41,8 @@ class Solution(object):
         result = []
         def inorder(root):
             if root:
-                result.append(root.val)
                 inorder(root.left)
+                result.append(root.val)
                 inorder(root.right)
         inorder(root)
         return result
