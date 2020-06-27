@@ -15,6 +15,7 @@ manacher算法
 
 class Solution(object):
 
+    # 中心扩散法
     def longestPalindrome(self, s: str) -> str:
         string = "#" + "#".join(s) + "#"
         max_palindrome = ""
@@ -33,10 +34,31 @@ class Solution(object):
             j += 1
         return string[i+1:j]
 
+    # 动态规划DP
+    def longestPalindrome2(self, s: str) -> str:
+        if not s:
+            return ''
+        
+        dp = [[False] * len(s) for _ in range(len(s))]
+        l, r = 0, 0
+        for i in range(len(s)-1, -1, -1):
+            dp[i][i] = True
+            for j in range(i+1, len(s)):
+                if s[i] == s[j]:
+                    # 对应 aba 或者 aa bb 这种形式的子串
+                    if j - i < 3:
+                        dp[i][j] = True
+                    else:
+                        dp[i][j] = dp[i+1][j-1]
+                    # 更改最新长度子串索引
+                    if dp[i][j] and r-l < j-i:
+                        l, r = i, j
+        return s[l:r+1]
+    
 def main():
     s = "35534321"
     solution = Solution()
-    string = solution.longestPalindrome(s=s)
+    string = solution.longestPalindrome2(s=s)
     print(string)
 
 if __name__ == "__main__":

@@ -26,7 +26,7 @@ class Solution(object):
             i -= 1
         if i == -1:
             self.reverseNums(nums=nums, i=0, j=len(nums)-1)
-            return nums
+            return
         j = len(nums)-1
         while j > i:
             if nums[j] > nums[i]:
@@ -47,11 +47,29 @@ class Solution(object):
             nums[m] = temp
             k += 1
 
+    def nextPermutation2(self, nums: [int]) -> None:
+        if not nums:
+            return
+        i = len(nums) - 2
+        while i > -1 and nums[i] >= nums[i+1]:
+            i -= 1
+        if i < 0:
+            nums[:] = nums[::-1]
+            return
+        j = len(nums) - 1
+        while j > i and nums[j] <= nums[i]:
+            j -= 1
+        print(i, j)
+        nums[i], nums[j] = nums[j], nums[i]
+        nums[i+1:] = nums[len(nums)-1:i:-1]
+        return nums
+        
+
 def main():
-    nums = [1, 1, 5]
+    nums = [5, 1, 1]
     print(nums)
     solution = Solution()
-    result = solution.nextPermutation(nums=nums)
+    result = solution.nextPermutation2(nums=nums)
     print(result)
 
 if __name__ == "__main__":

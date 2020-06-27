@@ -46,12 +46,29 @@ class Solution(object):
             zs += string[i]
         return zs
 
+    def convert3(self, s: str, numRows: int) -> str:
+        if not s or not numRows:
+            return ""
+        if numRows == 1:
+            return s
+        
+        rows = [""] * min(len(s), numRows)
+        i, direction = 0, False
+        # direction方向控制输出 True:正向 False:反向
+        for c in s:
+            rows[i] += c
+            if i == 0 or i == numRows - 1:
+                direction = bool(1 - direction)
+            # i控制每行输出内容 正向:i+1 反向:i-1
+            i += 1 if direction else -1
+
+        return "".join(rows)
 
 def main():
-    s = "ABCDE"
-    numRows = 4
+    s = "AB"
+    numRows = 1
     solution = Solution()
-    string = solution.convert2(s=s, numRows=numRows)
+    string = solution.convert3(s=s, numRows=numRows)
     print(string)
 
 if __name__ == "__main__":

@@ -67,11 +67,31 @@ class Solution(object):
         else:
             return float(right)
 
+    def findMedianSortedArrays3(self, nums1: [int], nums2: [int]) -> float:
+        l = (len(nums1) + len(nums2) + 1) // 2
+        r = (len(nums1) + len(nums2) + 2) // 2
+        return (self.getKth(nums1, 0, nums2, 0, l) + self.getKth(nums1, 0, nums2, 0, r)) / 2
+    
+    def getKth(self, nums1, start1, nums2, start2, k):
+        if start1 > len(nums1) - 1:
+            return nums2[start2 + k - 1]
+        if start2 > len(nums2) - 1:
+            return nums1[start1 + k - 1]
+        if k == 1:
+            return min(nums1[start1], nums2[start2])
+        
+        i = min(start1+k//2, len(nums1)) - 1
+        j = min(start2+k//2, len(nums2)) - 1
+        if nums1[i] > nums2[j]:
+            return self.getKth(nums1, start1, nums2, j+1, k-(j-start2+1))
+        else:
+            return self.getKth(nums1, i+1, nums2, start2, k-(i-start1+1))
+
 def main():
-    nums1 = [1, 3]
-    nums2 = [2]
+    nums1 = [1, 2]
+    nums2 = [3, 4]
     solution = Solution()
-    middle = solution.findMedianSortedArrays2(nums1=nums1, nums2=nums2)
+    middle = solution.findMedianSortedArrays3(nums1=nums1, nums2=nums2)
     print(middle)
 
 if __name__ == "__main__":

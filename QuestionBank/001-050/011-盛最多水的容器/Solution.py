@@ -23,10 +23,23 @@ class Solution(object):
                 right -= 1
         return area
 
+    def maxArea2(self, height: [int]) -> int:
+        result = 0
+        i, j = 0, len(height) - 1
+        while i < j:
+            area = min(height[i], height[j]) * (j-i)
+            if area > result:
+                result = area
+            if height[i] < height[j]:
+                i += 1
+            else:
+                j -= 1
+        return result
+
 def main():
     height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
     solution = Solution()
-    result = solution.maxArea(height=height)
+    result = solution.maxArea2(height=height)
     print(result)
 
 if __name__ == "__main__":
