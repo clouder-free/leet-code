@@ -36,7 +36,7 @@ class Solution(object):
         return s
 
 def main():
-    n = 8
+    n = 6
     solution = Solution()
     result = solution.countAndSay(n=n)
     print(result)

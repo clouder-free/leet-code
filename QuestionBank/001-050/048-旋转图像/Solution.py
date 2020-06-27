@@ -42,7 +42,30 @@ class Solution(object):
 
         for i in range(len(matrix)):
             matrix[i].reverse()
+    
+    # 顺时针旋转90
+    def rotateClockwise(self, matrix: [[int]]) -> None:
+        # 转置 正对角线
+        for i in range(len(matrix)):
+            for j in range(i):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        # 列互换
+        for line in matrix:
+            line.reverse()
+        
+        print(matrix)
 
+    # 逆时针旋转90
+    def rotateCounterclockwise(self, matrix: [[int]]) -> None:
+        # 行转列
+        for i in range(len(matrix)):
+            for j in range(i):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        
+        # 逆序 矩阵整体逆序
+        matrix[::] = matrix[::-1]
+        
+        print(matrix)
 
 def main():
     matrix = [
@@ -53,7 +76,9 @@ def main():
     ]
     print(matrix)
     solution = Solution()
-    solution.rotate(matrix=matrix)
+    # solution.rotate(matrix=matrix)
+    # solution.rotateClockwise(matrix=matrix)
+    solution.rotateCounterclockwise(matrix=matrix)
 
 if __name__ == "__main__":
     main()
