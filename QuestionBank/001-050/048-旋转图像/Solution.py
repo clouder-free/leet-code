@@ -81,7 +81,15 @@ def main():
     solution.rotateCounterclockwise(matrix=matrix)
 
 if __name__ == "__main__":
-    main()
+    # main()
+    words = ["eat", "tea"]
+    for word in words:
+        k = list(word)
+        k.sort()
+        kw = "".join(k)
+        print(kw)
+    
+    
 """
 两种解法：
 1：先对原矩阵进行转置 再对每行进行逆序

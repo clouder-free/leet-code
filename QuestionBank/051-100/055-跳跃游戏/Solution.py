@@ -34,11 +34,22 @@ class Solution(object):
                     return False
             i += 1
         return True
+    
+    def canJump2(self, nums: [int]) -> bool:
+        i, max_pos = 0, 0
+        for i in range(len(nums)):
+            if max_pos < i:
+                continue
+            max_pos = max(max_pos, i+nums[i])
+            if max_pos >= len(nums)-1:
+                return True
+        return False
+
 
 def main():
     nums = [3, 0, 0, 0]
     solution = Solution()
-    result = solution.canJump(nums=nums)
+    result = solution.canJump2(nums=nums)
     print(result)
 
 if __name__ == "__main__":

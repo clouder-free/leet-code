@@ -24,8 +24,10 @@ class Solution(object):
                 nums[i], nums[l] = nums[l], nums[i]
                 l += 1
                 i += 1
+            # 保持不变
             elif nums[i] == 1:
                 i += 1
+            # 移到右侧
             elif nums[i] == 2:
                 nums[i], nums[r] = nums[r], nums[i]
                 r -= 1
