@@ -8,6 +8,11 @@
       <sourceFolder url="file://$MODULE_DIR$/Tips" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/DataStructure" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/DataStructure/sorts" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tips/classification" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/QuestionBank/.idea" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/QuestionBank/001-050" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/QuestionBank/051-100" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/QuestionBank/101-150" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7 (LeetCode)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
