@@ -38,4 +38,6 @@ def main():
     print(result)
 
 if __name__ == "__main__":
-    main()
+    # main()
+    n = 2.100
+    print(str(n).rstrip('0'))
