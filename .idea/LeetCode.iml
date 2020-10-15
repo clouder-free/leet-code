@@ -179,6 +179,10 @@
       <sourceFolder url="file://$MODULE_DIR$/QuestionBank/151-200/165-比较版本号" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/QuestionBank/151-200/166-分数到小数" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/QuestionBank/151-200/167-两数之和II-输入有序数组" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/QuestionBank/151-200/168-Excel表列名称" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/QuestionBank/151-200/169-多数元素" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/QuestionBank/151-200/171-Excel表列序号" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/QuestionBank/151-200/172-阶乘后的零" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7 (LeetCode)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

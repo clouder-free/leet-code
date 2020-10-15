@@ -3,6 +3,7 @@
 
 """
 给定一个正整数，返回它在 Excel 表中相对应的列名称。
+26进制转换
 例如，
     1 -> A
     2 -> B
@@ -27,25 +28,18 @@
 class Solution(object):
     
     def convertToTitle(self, n: int) -> str:
-        titles = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
-                  'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+        titles = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         result = ''
-        while n > 26:
-            # 取整
-            if n % 26 == 0:
-                i = n // 26 - 1
-                result += titles[i-1]
-                n -= i * 26
-            else:
-                i = n // 26
-                result += titles[i-1]
-                n = n % 26
-        result += titles[n-1]
-        return result
+        while n > 0:
+            n -= 1
+            i = n % 26
+            result += titles[i]
+            n = n // 26
+        return result[::-1]
 
 
 def main():
-    n = 703
+    n = 52
     solution = Solution()
     result = solution.convertToTitle(n=n)
     print(result)
