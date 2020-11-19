@@ -186,6 +186,9 @@
       <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/01-list-linklist-skiptable" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/02-stack-queue" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/03-hash-set" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/04-tree-binary-tree" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/05-recursion-tree-recursion" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7 (base)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
