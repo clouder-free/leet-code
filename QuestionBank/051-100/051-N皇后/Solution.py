@@ -48,7 +48,7 @@ class Solution(object):
         return results
 
 def main():
-    n = 5
+    n = 4
     solution = Solution()
     results = solution.solveNQueens(n=n)
     print(results)
