@@ -191,6 +191,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/05-recursion-tree-recursion" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/06-divide-conquer" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/07-dfs-bfs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/08-greedy" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7 (base)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

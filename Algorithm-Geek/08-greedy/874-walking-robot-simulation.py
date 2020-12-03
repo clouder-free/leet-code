@@ -3,54 +3,29 @@
 class Solution(object):
 
     def robotSim(self, commands: [int], obstacles: [[int]]) -> int:
-        directions = {
-            'up': {-1: 'right', -2: 'left'},
-            'down': {-1: 'left', -2: 'right'},
-            'left': {-1: 'up', -2: 'down'},
-            'right': {-1: 'down', -2: 'up'}
-        }
-        x, y = 0, 0
-        current = 'up'
-        for i in range(len(commands)):
-            if commands[i] < 0:
-                current = directions[current][commands[i]]
-                continue
-            # 向上
-            if current == 'up':
-                ny = y + commands[i]
-                for obs in obstacles:
-                    if obs[0] == x and y < obs[1] <= ny:
-                        y = obs[1] - 1
-                        break
-                else:
-                    y = ny
-            # 向下
-            elif current == 'down':
-                ny = y - commands[i]
-                for obs in obstacles:
-                    if obs[0] == x and ny <= obs[1] < y:
-                        y = obs[1] + 1
-                        break
-                else:
-                    y = ny
-            elif current == 'left':
-                nx = x - commands[i]
-                for obs in obstacles:
-                    if obs[1] == y and nx <= obs[0] < x:
-                        x = obs[0] + 1
-                        break
-                else:
-                    x = nx
+        result = 0
+        direction_x = (0, 1, 0, -1)
+        direction_y = (1, 0, -1, 0)
+        _obstacle = set()
+        for obs in obstacles:
+            _obstacle.add(str(obs[0]) + ',' + str(obs[1]))
+        x, y, direction = 0, 0, 0
+        for command in commands:
+            if command == -2:
+                direction = (direction + 3) % 4
+            elif command == -1:
+                direction = (direction + 1) % 4
             else:
-                nx = x + commands[i]
-                for obs in obstacles:
-                    if obs[1] == y and x < obs[0] <= nx:
-                        x = obs[0] - 1
+                for i in range(1, command+1):
+                    nx = x + direction_x[direction]
+                    ny = y + direction_y[direction]
+                    loc = str(nx) + ',' + str(ny)
+                    if loc in _obstacle:
                         break
-                else:
-                    x = nx
+                    x, y = nx, ny
+                    result = max(x*x+y*y, result)
+        return result
 
-        return x * x + y * y
 
 def main():
     commands = [4, -1, 4, -2, 4]
