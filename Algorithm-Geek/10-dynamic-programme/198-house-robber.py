@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+
+class Solution(object):
+
+    def rob(self, nums: [int]) -> int:
+        pass
+
+def main():
+    nums = []
+    solution = Solution()
+    result = solution.rob(nums=nums)
+    print(result)
+
+if __name__ == '__main__':
+    main()
+
