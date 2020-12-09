@@ -195,6 +195,13 @@
       <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/09-binary-search" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/10-dynamic-programme" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/11-trie-disjoint-set" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/12-cut-double-bfs-A*" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/13-bit" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/14-bloom-filter-LRU" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/15-sort" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/16-dp-02" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/17-string" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Algorithm-Geek/18-red-black-AVL" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7 (base)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
