@@ -1,0 +1,23 @@
+爬楼梯问题
+(1). 1、2、3步
+(2). x1,x2,x3,....xm步
+(3). 前后不能走相同的步伐
+https://leetcode-cn.com/problems/climbing-stairs/description/
+https://leetcode-cn.com/problems/min-cost-climbing-stairs/
+
+编辑距离
+(1).BFS two-ended BFS
+(2).DP dp[i]
+
+不同路径
+打家劫舍
+
+1.状态定义
+2.状态转移方程
+
+https://leetcode-cn.com/problems/longest-increasing-subsequence/
+https://leetcode-cn.com/problems/decode-ways/
+https://leetcode-cn.com/problems/longest-valid-parentheses/
+https://leetcode-cn.com/problems/maximal-rectangle/
+https://leetcode-cn.com/problems/distinct-subsequences/
+https://leetcode-cn.com/problems/race-car/
