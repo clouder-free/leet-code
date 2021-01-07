@@ -22,45 +22,40 @@ class TreeNode(object):
 class Solution(object):
 
     def preorderTraversal(self, root: TreeNode) -> [int]:
-        result = []
-        if not root:
-            return result
-        def traverse(node):
-            nodes = [node]
-            while nodes:
-                result.append(node.val)
-                if node.right:
-                    nodes.append(node.right)
-                if node.left:
-                    nodes.append(node.left)
-                node = nodes.pop()
-        traverse(node=root)
-        return result
+        results = []
+        nodes = []
+        while root or nodes:
+            if root:
+                results.append(root.val)
+                nodes.append(root)
+                root = root.left
+            else:
+                root = nodes.pop()
+                root = root.right
+        return results
 
     def preorderTraversal2(self, root: TreeNode) -> [int]:
-        result = []
-        if not root:
-            return result
-        def traverse(node):
-            if node:
-                result.append(node.val)
-                traverse(node.left)
-                traverse(node.right)
-        traverse(node=root)
-        return result
+        if root:
+            return [root.val] + self.preorderTraversal2(root.left) + self.preorderTraversal2(root.right)
+        return []
+
 
 def main():
     root = TreeNode(1)
-    l2 = TreeNode(2)
-    l3 = TreeNode(3)
-    l4 = TreeNode(4)
-    l5 = TreeNode(5)
-    root.left = l2
-    root.right = l3
-    l2.right = l4
-    l3.left = l5
+    t2 = TreeNode(2)
+    t3 = TreeNode(3)
+    t4 = TreeNode(4)
+    t5 = TreeNode(5)
+    t6 = TreeNode(6)
+    t7 = TreeNode(7)
+    root.left = t2
+    root.right = t3
+    t2.left = t4
+    t4.right = t5
+    t3.left = t6
+    t6.left = t7
     solution = Solution()
-    result = solution.preorderTraversal2(root=root)
+    result = solution.preorderTraversal(root=root)
     print(result)
 
 if __name__ == "__main__":

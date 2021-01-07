@@ -24,31 +24,24 @@ class Solution(object):
 
     def inorderTraversal(self, root: TreeNode) -> [int]:
         result = []
-        def traverse(node):
-            nodes = []
-            while node or nodes:
-                if node:
-                    nodes.append(node)
-                    node = node.left
-                else:
-                    node = nodes.pop()
-                    result.append(node.val)
-                    node = node.right
-        traverse(root)
+        nodes = []
+        while root or nodes:
+            if root:
+                nodes.append(root)
+                root = root.left
+            else:
+                root = nodes.pop()
+                result.append(root.val)
+                root = root.right
         return result
 
     def inorderTraversal2(self, root: TreeNode) -> [int]:
-        result = []
-        def inorder(root):
-            if root:
-                inorder(root.left)
-                result.append(root.val)
-                inorder(root.right)
-        inorder(root)
-        return result
+        if root:
+            return self.inorderTraversal2(root.left) + \
+                   [root.val] + \
+                   self.inorderTraversal2(root.right)
 
 def printLinkList(node):
-
     print(node.val, end="")
     while node.next:
         print("->", end="")
@@ -58,9 +51,21 @@ def printLinkList(node):
 
 def main():
     root = TreeNode(1)
+    t2 = TreeNode(2)
+    t3 = TreeNode(3)
+    t4 = TreeNode(4)
+    t5 = TreeNode(5)
+    t6 = TreeNode(6)
+    t7 = TreeNode(7)
+    root.left = t2
+    root.right = t3
+    t2.left = t4
+    t4.right = t5
+    t3.left = t6
+    t6.left = t7
     solution = Solution()
     result = solution.inorderTraversal(root=root)
-    printLinkList(result)
+    print(result)
 
 if __name__ == "__main__":
     main()
