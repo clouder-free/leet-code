@@ -17,24 +17,30 @@ class Solution:
         while i < len(heights):
             while stack and heights[stack[-1]] >= heights[i]:
                 h = stack.pop()
-                if stack:
-                    length = i - stack[-1] - 1
-                else:
-                    length = i
-                result = heights[h] * length if heights[h] * length > result else result
+                width = i - stack[-1] - 1 if stack else i
+                result = max(result, width * heights[h])
             stack.append(i)
             i += 1
         if stack:
             last = stack[-1]
-            # 弹出递增序列元素
             while stack:
                 h = stack.pop()
-                if stack:
-                    length = last - stack[-1]
-                else:
-                    length = last + 1
-                result = heights[h] * length if heights[h] * length > result else result
+                width = last - stack[-1] if stack else last + 1
+                result = max(result, width * heights[h])
         return result
+
+    # 哨兵技巧
+    def largestRectangleArea2(self, heights: [int]) -> int:
+        result = 0
+        stack = []
+        heights = [0] + heights + [0]
+        for i in range(len(heights)):
+            while stack and heights[stack[-1]] >= heights[i]:
+                h = stack.pop()
+                result = max(result, (i-stack[-1]-1)*heights[h])
+            stack.append(i)
+        return result
+
 
 def main():
     # heights = [2, 1, 5, 6, 2, 3]
