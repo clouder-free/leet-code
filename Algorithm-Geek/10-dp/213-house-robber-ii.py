@@ -11,6 +11,10 @@ class Solution(object):
     def rob(self, nums: [int]) -> int:
         if not nums:
             return 0
+        if len(nums) == 1:
+            return nums[0]
+        if len(nums) == 2:
+            return max(nums)
         def my_rob(n):
             dp = [0] * len(n)
             dp[0] = n[0]
@@ -20,10 +24,6 @@ class Solution(object):
             return dp[-1]
         # 不偷第1个 不偷最后一个
         return max(my_rob(nums[1:]), my_rob(nums[:-1])) if len(nums) > 1 else nums[0]
-
-
-
-        pass
 
 
 def main():
