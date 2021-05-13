@@ -25,17 +25,18 @@ class Solution(object):
         stack = [root]
         while stack:
             root = stack.pop()
-            if not root:
+            if root:
                 result.append(root.val)
-                for chl in root.children:
-                    stack.append(chl)
+                if root.children:
+                    for chl in root.children:
+                        stack.append(chl)
         return result[::-1]
 
 
 def main():
     root = Node(val=1)
     solution = Solution()
-    result = solution.postorder(root=root)
+    result = solution.postorder2(root=root)
     print(result)
 
 if __name__ == '__main__':

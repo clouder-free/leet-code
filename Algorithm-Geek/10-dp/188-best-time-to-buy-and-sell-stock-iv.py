@@ -20,10 +20,20 @@ class Solution(object):
                 dp[i][j+1] = max(dp[i-1][j+1], dp[i-1][j]+prices[i])
         return dp[-1][-1]
 
+    def maxProfit2(self, k: int, prices: [int]) -> int:
+        # k = min(k, len(prices) // 2)
+        buy = [float('-inf')] * (k+1)
+        sell = [0] * (k+1)
+        for i in range(len(prices)):
+            for j in range(1, k+1):
+                buy[j] = max(buy[j], sell[j-1]-prices[i])
+                sell[j] = max(sell[j], buy[j]+prices[i])
+        return sell[-1]
+
 
 def main():
     prices = [2, 4, 1]
-    result = Solution().maxProfit(k=2, prices=prices)
+    result = Solution().maxProfit2(k=2, prices=prices)
     print(result)
 
 

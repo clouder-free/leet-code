@@ -14,7 +14,8 @@ class Solution(object):
         return result
 
 def main():
-    heights = [2, 1, 5, 6, 2, 3]
+    # heights = [2, 1, 5, 6, 2, 3]
+    heights = [1]
     solution = Solution()
     result = solution.largestRectangleArea(heights=heights)
     print(result)

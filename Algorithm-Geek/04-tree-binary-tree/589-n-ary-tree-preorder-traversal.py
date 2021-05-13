@@ -37,7 +37,7 @@ class Solution(object):
 def main():
     root = Node(val=1)
     solution = Solution()
-    result = solution.preorder(root=root)
+    result = solution.preorder2(root=root)
     print(result)
 
 if __name__ == '__main__':

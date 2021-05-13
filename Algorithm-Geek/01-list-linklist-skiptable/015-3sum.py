@@ -14,9 +14,9 @@ class Solution(object):
             while j < k:
                 if nums[i] + nums[j] + nums[k] == 0:
                     result.append([nums[i], nums[j], nums[k]])
-                    while nums[j] == nums[j+1] and j < k:
+                    while j < k and nums[j] == nums[j+1]:
                         j += 1
-                    while nums[k] == nums[k - 1] and j < k:
+                    while j < k and nums[k] == nums[k - 1]:
                         k -= 1
                     j += 1
                     k -= 1
@@ -30,10 +30,13 @@ class Solution(object):
 
 
 def main():
-    nums = [-1, 0, 1, 2, -1, -4]
+    # nums = [-1, 0, 1, 2, -1, -4]
+    nums = [0, 0, 0]
     solution = Solution()
-    result = solution.threeSum(nums=nums)
-    print(result)
+    # result = solution.threeSum(nums=nums)
+    result2 = solution.threeSum2(nums=nums)
+    # print("result1:", result)
+    print("result2:", result2)
 
 if __name__ == '__main__':
     main()

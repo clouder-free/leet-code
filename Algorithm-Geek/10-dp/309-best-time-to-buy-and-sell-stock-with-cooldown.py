@@ -18,6 +18,13 @@ class Solution(object):
             dp[i][2] = max(dp[i-1][1], dp[i-1][2])
         return max(dp[-1][1], dp[-1][2])
 
+    def maxProfit2(self, prices: [int]) -> int:
+        buy, pre, sell = float('-inf'), 0, 0
+        for i in range(len(prices)):
+            buy = max(buy, pre-prices[i])
+            pre, sell = sell, max(sell, buy+prices[i])
+        return sell
+
 
 def main():
     print("Hello World!")

@@ -16,11 +16,23 @@ class Solution(object):
         recurise('', 0)
         return result
 
+    def generateParenthesis2(self, n: int) -> [str]:
+        result = []
+        def recursive(s):
+            if len(s) == n*2:
+                result.append(s)
+                return
+            if s.count('(') < n:
+                recursive(s + '(')
+            if s.count('(') > s.count(')'):
+                recursive(s + ')')
+        recursive(s='')
+        return result
 
 def main():
     n = 3
     solution = Solution()
-    result = solution.generateParenthesis(n=n)
+    result = solution.generateParenthesis2(n=n)
     print(result)
 
 

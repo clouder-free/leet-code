@@ -16,6 +16,9 @@ class Codec(object):
         :type root: TreeNode
         :rtype: str
         """
+        if not root:
+            return 'X'
+        return str(root.val) + ',' + self.serialize(root.left) + ',' + self.serialize(root.right)
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
@@ -23,6 +26,17 @@ class Codec(object):
         :type data: str
         :rtype: TreeNode
         """
+        def dfs(lst):
+            if not lst:
+                return None
+            val = lst.pop(0)
+            if val == '#':
+                return None
+            root = TreeNode(int(val))
+            root.left = dfs(lst)
+            root.right = dfs(lst)
+            return root
+        return dfs(data.split(','))
 
 
 

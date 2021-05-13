@@ -3,7 +3,14 @@
 class Solution(object):
 
     def jump(self, nums: [int]) -> int:
-        pass
+        pos, end, step = 0, 0, 0
+        for i in range(len(nums)-1):
+            if pos >= i:
+                pos = max(pos, i+nums[i])
+                if i == end:
+                    end = pos
+                    step += 1
+        return step
 
 
 def main():

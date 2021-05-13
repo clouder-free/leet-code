@@ -21,13 +21,28 @@ class Solution(object):
             nums[i] = temp[i]
         print(nums)
 
+    def rotate3(self, nums: [int], k: int) -> None:
+        # inner func
+        def reverse(numbers, start, end):
+            while start < end:
+                numbers[start], numbers[end] = numbers[end], numbers[start]
+                start += 1
+                end -= 1
+        # rotate all
+        reverse(numbers=nums, start=0, end=len(nums)-1)
+        # rotate 0 - k-1
+        reverse(numbers=nums, start=0, end=k-1)
+        # rotate k - len(nums)-1
+        reverse(numbers=nums, start=k, end=len(nums)-1)
+        print(nums)
+
 
 def main():
     nums = [1, 2, 3, 4, 5, 6, 7]
     print(nums)
     k = 3
     solution = Solution()
-    solution.rotate2(nums=nums, k=k)
+    solution.rotate3(nums=nums, k=k)
 
 
 if __name__ == '__main__':

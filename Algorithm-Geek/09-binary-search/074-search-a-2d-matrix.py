@@ -13,8 +13,8 @@ class Solution(object):
                 break
         if row == -1:
             return False
-        l, r = 0, len(matrix[row])
-        while l < r:
+        l, r = 0, len(matrix[row])-1
+        while l <= r:
             mid = (l + r) // 2
             if matrix[row][mid] == target:
                 return True
@@ -25,10 +25,8 @@ class Solution(object):
         return False
 
 def main():
-    matrix = [
-        [1]
-    ]
-    target = 2
+    matrix = [[1]]
+    target = 1
     solution = Solution()
     result = solution.searchMatrix(matrix=matrix, target=target)
     print(result)
