@@ -17,8 +17,8 @@ class Solution(object):
                 return 0
             elif int(val) < -2 ** 31:
                 return -2 ** 31
-            elif int(val) > 2 ** 31:
-                return 2 ** 31
+            elif int(val) > 2 ** 31 - 1:
+                return 2 ** 31 - 1
             else:
                 return int(val)
         else:

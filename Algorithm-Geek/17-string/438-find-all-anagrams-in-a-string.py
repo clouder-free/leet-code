@@ -16,13 +16,33 @@ class Solution(object):
                 res.append(i)
         return res
 
+    # 滑动窗口
+    def findAnagrams2(self, s: str, p: str) -> [int]:
+        ls, lp = len(s), len(p)
+        result = []
+        if lp > ls:
+            return result
+        sw = [0] * 26
+        pw = [0] * 26
+        for i in range(lp):
+            sw[ord(s[i]) - ord('a')] += 1
+            pw[ord(p[i]) - ord('a')] += 1
+        if sw == pw:
+            result.append(0)
+        for i in range(lp, ls):
+            sw[ord(s[i-lp]) - ord('a')] -= 1
+            sw[ord(s[i]) - ord('a')] += 1
+            if sw == pw:
+                result.append(i-lp+1)
+        return result
+
 
 def main():
     # s = 'abab'
     # p = 'ab'
     s = 'cbaebabacd'
     p = 'abc'
-    r = Solution().findAnagrams(s=s, p=p)
+    r = Solution().findAnagrams2(s=s, p=p)
     print(r)
 
 

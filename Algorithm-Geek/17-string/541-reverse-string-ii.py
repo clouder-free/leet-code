@@ -14,12 +14,21 @@ class Solution(object):
             s = s[:i] + rs + s[i+2*k:]
         return s
 
+    def reversStr2(self, s: str, k: int) -> str:
+        if not s or k <= 1:
+            return s
+        for i in range(0, len(s), 2*k):
+            s = s[:i] + ''.join(list(s[i:i+k])[::-1]) + s[i+k:]
+        return s
+
 
 def main():
     s = 'abcdefg'
-    k = 1
+    k = 5
     res = Solution().reversStr(s=s, k=k)
-    print(res)
+    print('res1:', res)
+    res = Solution().reversStr2(s=s, k=k)
+    print('res2:', res)
 
 
 if __name__ == '__main__':
