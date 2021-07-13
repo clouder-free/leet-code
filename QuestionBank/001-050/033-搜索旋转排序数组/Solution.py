@@ -18,6 +18,7 @@ class Solution(object):
         j = len(nums) - 1
         while i <= j:
             mid = (i + j) // 2
+            print("i:", i, "j:", j, "mid:", mid)
             if target == nums[mid]:
                 return mid
             elif nums[mid] < nums[j]:
@@ -32,14 +33,36 @@ class Solution(object):
                     j = mid - 1
                 else:
                     i = mid + 1
+            print("i:", i, "j:", j, "mid:", mid)
+        return -1
+
+    def search2(self, nums: [int], target: int) -> int:
+        i, j = 0, len(nums)-1
+        while i <= j:
+            mid = (i+j) // 2
+            if nums[mid] == target:
+                return mid
+            # 左半部分有序
+            elif nums[mid] >= nums[i]:
+                if nums[i] <= target < nums[mid]:
+                    j = mid - 1
+                else:
+                    i = mid + 1
+            # 右半部分有序
+            else:
+                if nums[mid] < target <= nums[j]:
+                    i = mid + 1
+                else:
+                    j = mid - 1
+            print("i:", i, "j:", j, "mid:", mid)
         return -1
 
 def main():
-    nums = [4, 5, 6, 7, 0, 1, 2]
-    target = 0
+    nums = [3, 1]
+    target = 1
     print(nums)
     solution = Solution()
-    result = solution.search(nums=nums, target=target)
+    result = solution.search2(nums=nums, target=target)
     print(result)
 
 if __name__ == "__main__":

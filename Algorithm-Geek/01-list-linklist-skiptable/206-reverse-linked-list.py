@@ -28,6 +28,14 @@ class Solution(object):
             p, q = q, k
         return p
 
+    def reverseList3(self, head: ListNode) -> ListNode:
+        h = ListNode(0)
+        while head:
+            p = head.next
+            h.next, head.next = head, h.next
+            head = p
+        return h.next
+
 def print_link_list(head):
     while head:
         print(head.val, end='')
@@ -47,7 +55,7 @@ def main():
     n2.next = n3
     n3.next = n4
     print_link_list(head=head)
-    result = solution.reverseList2(head=head)
+    result = solution.reverseList3(head=head)
     print_link_list(result)
 
 if __name__ == '__main__':

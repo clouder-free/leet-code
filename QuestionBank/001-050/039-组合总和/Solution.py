@@ -43,12 +43,26 @@ class Solution(object):
                 results.append(result)
                 return
 
+    def combinationSum2(self, candidates: [int], target: int) -> [[int]]:
+        result = []
+        def _backtrace(numbers, temp):
+            if sum(temp) == target:
+                result.append(temp[:])
+                return
+            if sum(temp) > target:
+                return
+            for i in range(len(numbers)):
+                _backtrace(numbers[i:], temp+[numbers[i]])
+        _backtrace(candidates, [])
+        return result
 
 
 def main():
     candidates = [2, 3, 5]
     target = 8
     solution = Solution()
+    result = solution.combinationSum2(candidates=candidates, target=target)
+    print(result)
     result = solution.combinationSum(candidates=candidates, target=target)
     print(result)
 

@@ -35,7 +35,7 @@ def quickSort(nums: [int]) -> [int]:
                 end -= 1
             nums[start] = nums[end]
             # 左半部分第一个大于target
-            while start < end and nums[start] < target:
+            while start < end and nums[start] <= target:
                 start += 1
             nums[end] = nums[start]
         nums[start] = target
@@ -57,7 +57,7 @@ def shellSort(nums: [int]) -> [int]:
     while step > 0:
         for i in range(step, len(nums)):
             j = i
-            while j-step>=0 and nums[j] < nums[j-step]:
+            while j >= step and nums[j] < nums[j-step]:
                 nums[j-step], nums[j] = nums[j], nums[j-step]
                 j -= step
         step //= 2
@@ -123,7 +123,7 @@ def mergeSort(arr):
 
 
 def main():
-    nums = [3, 5, 38, 15, 26, 27, 4, 19, 46]
+    nums = [3, 5, 38, 15, 3, 3, 3, 3, 46]
     # res = bubbleSort(nums=nums)
     res = quickSort(nums=nums)
     print('quick:', res)
@@ -139,5 +139,19 @@ def main():
     print('merge:', res)
 
 
+def pi():
+    import random
+    radius = 1000
+    total = 100000
+    count = 0
+    for i in range(total):
+        x = random.randint(-1000, 1000)
+        y = random.randint(-1000, 1000)
+        if x*x + y*y < radius*radius:
+            count += 1
+    pi = 4.0 * count / total
+    print("pi", pi)
+
 if __name__ == '__main__':
     main()
+    # pi()

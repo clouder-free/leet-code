@@ -63,14 +63,30 @@ class Solution(object):
         nums[i], nums[j] = nums[j], nums[i]
         nums[i+1:] = nums[len(nums)-1:i:-1]
         return nums
-        
+
+    def nextPermutation3(self, nums: [int]) -> None:
+        if not nums or len(nums) == 1:
+            return
+        i = len(nums)-2
+        while i >= 0 and nums[i] >= nums[i+1]:
+            i -= 1
+        print('i:', i)
+        if i >= 0:
+            j = len(nums)-1
+            while j > i and nums[j] <= nums[i]:
+                j -= 1
+            nums[i], nums[j] = nums[j], nums[i]
+            print('j:', j)
+        print("i+1:", nums[i+1:])
+        nums[i+1:] = nums[i+1:][::-1]
+        print(nums)
+
 
 def main():
-    nums = [5, 1, 1]
-    print(nums)
+    nums = [3, 2, 1]
+    print(nums[2:-1])
     solution = Solution()
-    result = solution.nextPermutation2(nums=nums)
-    print(result)
+    solution.nextPermutation3(nums=nums)
 
 if __name__ == "__main__":
     main()

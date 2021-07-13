@@ -27,10 +27,28 @@ class Solution(object):
                 r -= 1
         return result
 
+    # 单调栈
+    def trap2(self, height: [int]) -> int:
+        result = 0
+        stack = []
+        for i in range(len(height)):
+            while stack and height[stack[-1]] < height[i]:
+                # 弹出元素
+                top = stack.pop()
+                if stack:
+                    h = min(height[stack[-1]], height[i]) - height[top]
+                    result += (i-stack[-1]-1)*h
+            stack.append(i)
+        return result
+
+
+
 def main():
     height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
     solution = Solution()
     result = solution.trap(height=height)
+    print(result)
+    result = solution.trap2(height=height)
     print(result)
 
 if __name__ == "__main__":

@@ -24,8 +24,6 @@ class Solution(object):
                     j += 1
                 else:
                     k -= 1
-
-
         return result
 
 

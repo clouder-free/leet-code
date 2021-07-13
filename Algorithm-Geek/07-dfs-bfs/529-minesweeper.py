@@ -69,12 +69,37 @@ class Solution(object):
                 count += 1
         return count
 
+    def updateBoard2(self, board: [[str]], click: [int]) -> [[str]]:
+        x, y = click
+        if board[x][y] == 'M':
+            board[x][y] = 'X'
+            return board
+        self._dfs(board, x, y)
+        return board
+
+    def _dfs(self, board, x, y):
+        directions = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
+        count = 0
+        m, n = len(board), len(board[0])
+        for direction in directions:
+            dx, dy = x+direction[0], y+direction[1]
+            if 0 <= dx < m and 0 <= dy < n and board[dx][dy] == 'M':
+                count += 1
+        if count > 0:
+            board[x][y] = str(count)
+            return
+        board[x][y] = 'B'
+        for direction in directions:
+            dx, dy = x+direction[0], y+direction[1]
+            if 0 <= dx < m and 0 <= dy < n and board[dx][dy] == 'E':
+                self._dfs(board, dx, dy)
+
 
 def main():
-    # board = [['E', 'E', 'E', 'E', 'E'],
-    #          ['E', 'E', 'M', 'E', 'E'],
-    #          ['E', 'E', 'E', 'E', 'E'],
-    #          ['E', 'E', 'E', 'E', 'E']]
+    board = [['E', 'E', 'E', 'E', 'E'],
+             ['E', 'E', 'M', 'E', 'E'],
+             ['E', 'E', 'E', 'E', 'E'],
+             ['E', 'E', 'E', 'E', 'E']]
     # board = [["E", "E", "E", "E", "E", "E", "E", "E"],
     #          ["E", "E", "E", "E", "E", "E", "E", "M"],
     #          ["E", "E", "M", "E", "E", "E", "E", "E"],
@@ -83,12 +108,13 @@ def main():
     #          ["E", "E", "E", "E", "E", "E", "E", "E"],
     #          ["E", "E", "E", "E", "E", "E", "E", "E"],
     #          ["E", "E", "M", "M", "E", "E", "E", "E"]]
-    board = [["M","M","M","M","M","M"],
-             ["M","M","M","E","M","M"],
-             ["M","M","M","M","M","M"]]
+    # board = [["M","M","M","M","M","M"],
+    #          ["M","M","M","E","M","M"],
+    #          ["M","M","M","M","M","M"]]
     click = [1, 3]
     result = Solution().updateBoard(board, click)
     print(result)
+    print(Solution().updateBoard2(board, click))
 
 
 if __name__ == '__main__':

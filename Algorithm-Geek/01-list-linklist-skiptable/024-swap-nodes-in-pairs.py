@@ -24,6 +24,18 @@ class Solution(object):
             p = p.next
         return head
 
+    def swapPairs2(self, head: ListNode) -> ListNode:
+        if not head or not head.next:
+            return head
+        h = ListNode(val=0, next=head)
+        tail = h
+        while head and head.next:
+            p = head.next
+            head.next, p.next = p.next, head
+            tail.next = p
+            tail, head = head, head.next
+        return h.next
+
 
 def print_link_list(head):
     while head:
@@ -45,7 +57,7 @@ def main():
     n4.next = n5
     print_link_list(head)
     solution = Solution()
-    result = solution.swapPairs(head=head)
+    result = solution.swapPairs2(head=head)
     print_link_list(head=result)
 
 
