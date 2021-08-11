@@ -61,7 +61,7 @@ func findMedianSortedArrays2(nums1 []int, nums2 []int) float64 {
 		}
 		left, right = right, number
 	}
-	println("left:", left, "right:", right)
+	// println("left:", left, "right:", right)
 	var result float64
 	if (len(nums1)+len(nums2))%2 == 0 {
 		result = float64(left+right) / 2.0
