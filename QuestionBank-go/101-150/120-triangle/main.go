@@ -24,7 +24,7 @@ func minimumTotal(triangle [][]int) int {
 			result = triangle[len(triangle)-1][i]
 		}
 	}
-	fmt.Printf("%v\n", triangle)
+	// fmt.Printf("%v\n", triangle)
 	return result
 }
 
