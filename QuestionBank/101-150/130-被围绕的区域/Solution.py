@@ -72,13 +72,18 @@ class Solution(object):
 
 
 def main():
+    # board = [
+    #     ["X", "X", "X", "X"],
+    #     ["X", "O", "O", "X"],
+    #     ["X", "X", "O", "X"],
+    #     ["X", "O", "X", "X"]]
     board = [
-        ["X", "X", "X", "X"],
-        ["X", "O", "O", "X"],
-        ["X", "X", "O", "X"],
-        ["X", "O", "X", "X"]]
+        ["O", "O", "O"],
+        ["O", "O", "O"],
+        ["O", "O", "O"]]
     solution = Solution()
     solution.solve(board=board)
+    print board
 
 if __name__ == "__main__":
     main()
