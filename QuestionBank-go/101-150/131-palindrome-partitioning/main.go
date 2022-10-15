@@ -1,5 +1,4 @@
 package main
-<<<<<<< HEAD
 
 import "fmt"
 
@@ -46,5 +45,3 @@ func main() {
 		fmt.Printf("%v\n", res)
 	}
 }
-=======
->>>>>>> c129b40f8a89045388d5627db9e3bb990463b2e7
