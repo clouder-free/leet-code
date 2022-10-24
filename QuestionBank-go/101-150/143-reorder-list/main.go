@@ -13,7 +13,7 @@ func reorderList(head *ListNode) {
 	for p := head; p != nil; p = p.Next {
 		nodes = append(nodes, p)
 	}
-	// use list to store all nodes
+	// exchange i j nodes
 	i, j := 0, len(nodes)-1
 	for ; i < j; i, j = i+1, j-1 {
 		nodes[i].Next, nodes[j].Next = nodes[j], nodes[i].Next
