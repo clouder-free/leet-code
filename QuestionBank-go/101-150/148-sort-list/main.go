@@ -7,7 +7,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
-// insert sort list
+// merge sort list
 func sortList(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
